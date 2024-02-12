@@ -1,1 +1,1 @@
-Prebuilt RPMs and quick walk through for robinhood install on RHEL 8 lustre client
+Prebuilt RPMs and quick walkthrough for Robinhood install on RHEL 8 lustre client
