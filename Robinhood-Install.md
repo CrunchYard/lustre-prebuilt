@@ -44,6 +44,14 @@ wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/robinhood-webgui-3
 sudo rpm -i robinhood-adm-3.1.7-1.x86_64.rpm  robinhood-lustre-3.1.7-1.lustre2.15.el8.x86_64.rpm  robinhood-tools-3.1.7-1.lustre2.15.el8.x86_64.rpm  robinhood-webgui-3.1.7-1.x86_64.rpm
 ```
 
+### 4 - Set directory to where mariadb databases are mounted
+
+**Note - need to double check where RHEL puts the config file.**
+Change `datadir` configuration option to where the mariadb databases are mounted.  For example, `/opt/sas/rbh/mariadb`.
+```bash
+sudo vi /etc/my.cnf
+```
+
 ### 4 - Enable and start mariadb
 
 ```bash
