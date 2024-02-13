@@ -102,6 +102,8 @@ sudo robinhood --scan --once
 
 Not too sure how long - will probably want to run it outside of busy hours.
 
+At the end of the scan a report will be printed to the screen.  Please make a note of the total time taken and other statistics.
+
 ### 13 - Setup the systemctl service file correctly
 
 ```bash
