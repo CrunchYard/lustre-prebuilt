@@ -129,6 +129,12 @@ EOF
 sudo systemctl enable robinhood --now
 ```
 
+### 15 - Display stats about daemon activity
+
+```bash
+rbh-report -a
+```
+
 ## Webserver on robinhood client
 
 ### 1 - Copy the config template
