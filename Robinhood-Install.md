@@ -109,6 +109,8 @@ sudo robinhood --scan --once
 ```
 *Various errors could happen here if misconfigured, e.g. CheckFS realpath: No such file or directory, Failed to connect to MySQL after 0 retries: Error: Access denied for user*
 
+**NOTE: must find out how to increase the number of threads for the scan**
+
 ### 12 - Scan will take time!
 
 Not too sure how long - will probably want to run it outside of busy hours.
