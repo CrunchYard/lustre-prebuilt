@@ -175,6 +175,10 @@ sudo systemctl enable httpd --now
 
 Setup authentication / access control.
 
+Important file:
+```bash
+/etc/httpd/conf/httpd.conf
+```
 
 ## Notes
 
