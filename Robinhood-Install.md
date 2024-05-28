@@ -175,14 +175,73 @@ sudo systemctl enable httpd --now
 
 ### 7 - Standard webserver setup things
 
-Setup authentication / access control.
+Setup authentication / access control and SSL.
 
-Important file:
+For access control only for user called `admin`:
+
+First create an `htpasswd` file:
+
 ```bash
-/etc/httpd/conf/httpd.conf
+sudo htpasswd -c /etc/httpd/conf/passwd admin
 ```
 
-## Notes
+Will be prompted to enter the password for user `admin` and to asked to re-enter it.
+
+Next edit `/etc/httpd/conf.d/robinhood.conf` and replace contents with the following (not forgetting to change ServerName to the FQDN of the host):
+```
+<VirtualHost *:80>
+# NB: Must edit the following line!
+ServerName localhost
+DocumentRoot /var/www/
+
+Alias / /var/www/robinhood/
+<Directory "/var/www/robinhood">
+  AuthType Basic
+  AuthName "Restricted"
+  AuthBasicProvider file
+  AuthUserFile "/etc/httpd/conf/passwd"
+  Require user admin
+</Directory>
+
+</VirtualHost>
+```
+
+For access control and SSL:
+
+Create `htpasswd` file if not already done (see previous).
+
+Will first need to obtain the SSL certificate files - both the cert and the key.  Suggestion is to place these in `/etc/httpd/conf`.  Ensure file permissions are appropriate, ownership would need to be `httpd`.
+
+Edit `/etc/httpd/conf/httpd.conf` and comment out `Listen 80`.
+
+Next edit `/etc/httpd/conf.d/robinhood.conf` and replace contents with the following (not forgetting to change ServerName to the FQDN of the host):
+
+```
+LoadModule ssl_module modules/mod_ssl.so
+
+Listen 443
+
+<VirtualHost *:443>
+  # NB: Must edit the following line!
+  ServerName localhost
+  SSLEngine on
+  SSLCertificateFile "/etc/httpd/conf/www.example.com.cert"
+  SSLCertificateKeyFile "/etc/httpd/conf/www.example.com.key"
+  DocumentRoot /var/www/
+
+  Alias / /var/www/robinhood/
+  <Directory "/var/www/robinhood">
+    AuthType Basic
+    AuthName "Restricted"
+    AuthBasicProvider file
+    AuthUserFile "/etc/httpd/conf/passwd"
+    Require user admin
+  </Directory>
+</VirtualHost>
+```
+
+
+## Additional Notes
 
 > Required disk space is around 1KB per entry (e.g. 100GB for 100 million entries, 1TB for 1 billion entries...). This sizing is influenced by filesystems contents profile like entry name and path length, stripe width...
 
