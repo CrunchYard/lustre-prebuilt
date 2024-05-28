@@ -46,10 +46,13 @@ sudo rpm -i robinhood-adm-3.1.7-1.x86_64.rpm  robinhood-lustre-3.1.7-1.lustre2.1
 
 ### 4 - Set directory to where mariadb databases are mounted
 
-**Note - need to double check where RHEL puts the config file.**
-Change `datadir` configuration option to where the mariadb databases are mounted.  For example, `/opt/sas/rbh/mariadb`.
+Change `datadir` configuration option to where the mariadb databases are mounted.  For example, `/opt/mysql`.
 ```bash
-sudo vi /etc/my.cnf
+vi /etc/my.cnf.d/mariadb-server.cnf
+```
+Ensure `/opt/mysql` is owned by mysql.mysql.
+```bash
+sudo chown mysql.mysql /opt/mysql
 ```
 
 ### 4 - Enable and start mariadb
