@@ -104,7 +104,7 @@ sudo cp /etc/robinhood.d/templates/basic.conf /etc/robinhood.d/LustreFS.conf
 1. **Set `fs_path` to where lustre is mounted** (template has "/path/to/fs")
 2. **Set `fs_type` to lustre**  (template has xfs)
 3. **Set `db` to robinhood_LustreFS (refer back to previous step)** (template has rbh_test)
-4. **Set `reader_id` to whatever changelog reader was created on the MDS (see previous)
+4. **Set `reader_id` to whatever changelog reader was created on the MDS (see previous)**
 ```bash
 sudo vi /etc/robinhood.d/LustreFS.conf
 ```
