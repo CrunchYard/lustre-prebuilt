@@ -137,9 +137,7 @@ EOF
 
 ### 15 - Ensure robinhood is configured to read Lustre changelogs
 
-Check that `RBH_OPT` includes `"--readlog"` in `/etc/sysconfig/robinhood`.
-
-Refer to: https://github.com/cea-hpc/robinhood/wiki/robinhood_v3_admin_doc#user-content-Reading_Lustre_changelogs
+Verify that `RBH_OPT` includes `"--readlog"` in `/etc/sysconfig/robinhood`.
 
 ### 16 - Enable and start robinhood
 
