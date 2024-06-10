@@ -61,19 +61,19 @@ Ensure `/opt/mysql` is owned by mysql.mysql.
 sudo chown mysql.mysql /opt/mysql
 ```
 
-### 4 - Enable and start mariadb
+### 5 - Enable and start mariadb
 
 ```bash
 sudo systemctl enable mariadb --now
 ```
 
-### 5 - Lockdown mariadb
+### 6 - Lockdown mariadb
 
 **Default database root password is blank.  Set to something sensible.  Answer yes to all questions.**
 ```bash
 sudo mysql_secure_installation
 ```
-### 6 - Create lustre database
+### 7 - Create lustre database
 
 1. **Will need to supply the identifier for the lustre filesystem (check in /etc/fstab)**
 2. localhost sufficient for where robinhood command will be run.
@@ -83,23 +83,23 @@ Note that default DB name is based on the identifier, e.g. robinhood_LustreFS.
 ```bash
 sudo rbh-config create_db
 ```
-### 7 - Write DB password
+### 8 - Write DB password
 ```bash
 sudo vi /etc/robinhood.d/.dbpassword
 ```
-### 8 - Secure permissions on DB password file
+### 9 - Secure permissions on DB password file
 ```bash
 sudo chmod 600 /etc/robinhood.d/.dbpassword
 ```
 
-### 9 - Copy basic robinhood config file
+### 10 - Copy basic robinhood config file
 Use `/etc/robinhood.d/templates/basic.conf` as template
 **NB the config filename must match name of the lustre filesystem name**
 ```bash
 sudo cp /etc/robinhood.d/templates/basic.conf /etc/robinhood.d/LustreFS.conf
 ```
 
-### 10 - Edit basic config file
+### 11 - Edit basic config file
 
 1. **Set `fs_path` to where lustre is mounted** (template has "/path/to/fs")
 2. **Set `fs_type` to lustre**  (template has xfs)
@@ -109,7 +109,7 @@ sudo cp /etc/robinhood.d/templates/basic.conf /etc/robinhood.d/LustreFS.conf
 sudo vi /etc/robinhood.d/LustreFS.conf
 ```
 
-### 11 - Initial scan
+### 12 - Initial scan
 **Useful notes in the admin documentation** [Initial scan](https://github.com/cea-hpc/robinhood/wiki/robinhood_v3_admin_doc#initial-scan)
 ```bash
 sudo robinhood --scan --once
@@ -118,13 +118,13 @@ sudo robinhood --scan --once
 
 **NOTE: must find out how to increase the number of threads for the scan**
 
-### 12 - Scan will take time!
+### 13 - Scan will take time!
 
 Not too sure how long - will probably want to run it outside of busy hours.
 
 At the end of the scan a report will be printed to the screen.  Please make a note of the total time taken and other statistics.
 
-### 13 - Setup the systemctl service file correctly
+### 14 - Setup the systemctl service file correctly
 
 ```bash
 cat <<EOF | sudo tee -a /usr/lib/systemd/system/robinhood.service
@@ -135,13 +135,19 @@ Alias=robinhood.service
 EOF
 ```
 
-### 14 - Enable and start robinhood
+### 15 - Ensure robinhood is configured to read Lustre changelogs
+
+Check that `RBH_OPT` includes `"--readlog"` in `/etc/sysconfig/robinhood`.
+
+Refer to: https://github.com/cea-hpc/robinhood/wiki/robinhood_v3_admin_doc#user-content-Reading_Lustre_changelogs
+
+### 16 - Enable and start robinhood
 
 ```bash
 sudo systemctl enable robinhood --now
 ```
 
-### 15 - Display stats about daemon activity
+### 17 - Display stats about daemon activity
 
 ```bash
 rbh-report -a
@@ -175,12 +181,12 @@ sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
 vi /etc/httpd/conf.d/robinhood.conf
 ```
 
-### 6 - Enable and start the webserver
+### 5 - Enable and start the webserver
 ```bash
 sudo systemctl enable httpd --now
 ```
 
-### 7 - Standard webserver setup things
+### 6 - Standard webserver setup things
 
 Setup authentication / access control and SSL.
 
