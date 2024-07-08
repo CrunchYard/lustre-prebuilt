@@ -105,6 +105,13 @@ sudo cp /etc/robinhood.d/templates/basic.conf /etc/robinhood.d/LustreFS.conf
 2. **Set `fs_type` to lustre**  (template has xfs)
 3. **Set `db` to robinhood_LustreFS (refer back to previous step)** (template has rbh_test)
 4. **Set `reader_id` to whatever changelog reader was created on the MDS (see previous)**
+5. **Add entry to reduce log verbosity**
+   ```
+   Log {
+    # Log verbosity level
+    # Possible values are: CRIT, MAJOR, EVENT, VERB, DEBUG, FULL
+    debug_level = MAJOR;
+   }
 ```bash
 sudo vi /etc/robinhood.d/LustreFS.conf
 ```
