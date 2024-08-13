@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
+    echo "Please use get-large-files-on-ost.sh"
     exit 1
 fi
 
