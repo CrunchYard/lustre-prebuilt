@@ -8,4 +8,5 @@ fi
 export SIZE=$1
 export OST=$2
 
-rbh-find "$(pwd -P)" -size +${SIZE}M -exec "./check-ost.sh {} $OST" \; > large-files-on-ost${OST}.csv 2> /dev/null
+echo "filename" > large-files-on-ost${OST}.csv
+rbh-find "$(pwd -P)" -size +${SIZE}M -exec "./check-ost.sh {} $OST" \; >> large-files-on-ost${OST}.csv 2> /dev/null
