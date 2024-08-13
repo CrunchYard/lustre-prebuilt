@@ -1,6 +1,7 @@
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
+    echo "Please use get-single-stripe-files.sh"
     exit 1
 fi
 
