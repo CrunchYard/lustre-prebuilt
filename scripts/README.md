@@ -1,5 +1,7 @@
 # Various scripts
 
+NB:  works on the current working directory.
+
 Example usage:
 
 ## Generate large-files-on-ost1.csv which contains list of files larger than 100MB on OST1
