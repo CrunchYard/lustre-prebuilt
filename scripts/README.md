@@ -15,3 +15,8 @@ sudo ./get-large-files-on-ost.sh 100 1
 # Generate single-stripe-files.csv which contains list of all files larger than 10MB that are single striped
 sudo ./get-single-stripe-files.sh
 ```
+
+## Notes
+- Include argument for path to check.
+- Use rbh-du to look for largest directories.
+- Name for output to prefix (BU).
