@@ -13,7 +13,7 @@ sudo get_large_files_on_ost -p /lustre -s 100 -n 1 -o large-files-on-ost1.csv
 
 ## Generate single-stripe-files.csv which contains list of all files larger than 10MB that are single striped
 ```bash
-sudo ./get_single_stripe_files -s 10 -o single-stripe-files.csv
+sudo get_single_stripe_files -s 10 -o single-stripe-files.csv
 ```
 
 ## Notes
