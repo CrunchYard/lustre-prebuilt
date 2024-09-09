@@ -13,11 +13,9 @@ sudo get_large_files_on_ost -p /lustre -s 100 -n 1 -o large-files-on-ost1.csv
 
 ## Generate single-stripe-files.csv which contains list of all files larger than 10MB that are single striped
 ```bash
-# Generate single-stripe-files.csv which contains list of all files larger than 10MB that are single striped
-sudo ./get-single-stripe-files.sh
+sudo ./get_single_stripe_files -s 10 -o single-stripe-files.csv
 ```
 
 ## Notes
-- Include argument for path to check.
 - Use rbh-du to look for largest directories.
-- Name for output to prefix (BU).
+- document the text prefix
