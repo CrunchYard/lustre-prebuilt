@@ -2,7 +2,7 @@
 
 # Function to display help message
 usage() {
-    echo "Usage: $0 -p <path> -s <size> -n <OST> [-o <output>]"
+    echo "Usage: $0 -p <path> -s <size> -n <OST> [-o <output>] [-t <text>]"
     echo
     echo "Generate list of files greater than a certain size that reside on the specified OST."
     echo
