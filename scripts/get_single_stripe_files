@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Function to display help message
+usage() {
+    echo "Usage: $0 -p <path> [-o <output>] [-t <text>]"
+    echo
+    echo "Generate list of files greater than a certain size that reside on the specified OST."
+    echo
+    echo "Options:"
+    echo "  -p <path>              Path to check."
+    echo "  -s <size>              Minimum size of file to find expressed in MB."
+    echo "  -o <filename>          Output results to filename (default output is stdout)."
+    echo "  -t <text>              Prefix text to each line of output (default is none)."
+    echo "  -h                     Display this help message."
+    exit 1
+}
+
+export THEPATH=""
+export OUTPUT=""
+export TEXT=""
+
+# Parse command line arguments
+while getopts ":p:s:o:t:h" opt; do
+    case $opt in
+        p) THEPATH="$OPTARG" ;;
+        s) SIZE="$OPTARG" ;;
+        o) OUTPUT="$OPTARG" ;;
+        t) TEXT="$OPTARG" ;;
+        h) usage ;;                     # Display help message
+        \?) echo "Invalid option: -$OPTARG" >&2; usage ;;
+        :) echo "Option -$OPTARG requires an argument." >&2; usage ;;
+    esac
+done
+
+# Check if mandatory arguments are provided
+if [ -z "$THEPATH" ]; then
+    echo
+    echo "Error: Argument -p is required."
+    echo
+    usage
+fi
+if [ -z "$SIZE" ]; then
+    echo
+    echo "Error: Argument -s is required."
+    echo
+    usage
+fi
+
+# Check for valid integers
+if ! [[ "$SIZE" =~ ^[0-9]+$ ]]; then
+    echo
+    echo "Error: Argument for -s must be an integer."
+    echo
+    usage
+fi
+
+# Output
+if [ -z "$OUTPUT" ]; then
+    export OUTPUT="/dev/stdout"
+fi
+
+echo "#/path/filename,stripe_cnt,stripe_size" > $OUTPUT
+
+rbh-find "$THEPATH" -size +${SIZE}M 2> /dev/null | while read FILE; do
+    export FILE
+    rbh-report -e $FILE 2> /dev/null | gawk -F'\t' '{split($1,field,","); split($2,value,","); gsub(/ /,"",value[1]); gsub(/ /,"",value[2]); stripe_cnt=value[1]; stripe_size=value[2]; if(field[1]=="stripe_cnt"&&stripe_cnt<2) {printf("%s%s,%s,%s\n", ENVIRON["TEXT"], ENVIRON["FILE"], stripe_cnt, stripe_size);}}' >> $OUTPUT
+done
