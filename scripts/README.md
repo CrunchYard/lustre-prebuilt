@@ -41,5 +41,20 @@ Example output (stdio):
 /lustre/crunchyard/random/file013.bin,1,1.00MB
 ```
 
-## Notes
-- Need to create script that uses rbh-du to look for largest directories.
+## Generate reverse sorted list of directory sizes in bytes in a particular directory
+```bash
+sudo get_large_directories -p /lustre -o large.txt
+```
+
+Example output:
+```
+15831268	/lustre/crunchyard
+14696548	/lustre/random
+512012	/lustre/another
+69476	/lustre/doc
+```
+
+## Can also use rbh-find directly
+```bash
+rbh-find -size 50M -ost 1
+```
