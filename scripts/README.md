@@ -1,4 +1,5 @@
 ## NB: Can also use rbh-find directly to find files larger than a certain size on a specific OST
+Runs much faster than the script!
 ```bash
 rbh-find /lustre -size +50M -ost 1
 ```
