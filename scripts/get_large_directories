@@ -4,7 +4,7 @@
 usage() {
     echo "Usage: $0 -p <path> -o <output>"
     echo
-    echo "Generate list of files greater than a certain size that reside on the specified OST."
+    echo "Generate reverse sorted list of directory sizes in bytes in a particular directory."
     echo
     echo "Options:"
     echo "  -p <path>              Path to check."
