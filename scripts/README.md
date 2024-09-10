@@ -1,4 +1,10 @@
+## NB: Can also use rbh-find directly to find files larger than a certain size on a specific OST
+```bash
+rbh-find -size +50M -ost 1
+```
+
 # Various scripts
+
 Example usage:
 
 ## Generate list to stdout of files larger than 50MB on OST1 in path /lustre
@@ -52,9 +58,4 @@ Example output:
 14696548	/lustre/random
 512012	/lustre/another
 69476	/lustre/doc
-```
-
-## Can also use rbh-find directly
-```bash
-rbh-find -size +50M -ost 1
 ```
