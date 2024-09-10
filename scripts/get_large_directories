@@ -1,0 +1,54 @@
+#!/usr/bin/bash
+
+# Function to display help message
+usage() {
+    echo "Usage: $0 -p <path> -o <output>"
+    echo
+    echo "Generate list of files greater than a certain size that reside on the specified OST."
+    echo
+    echo "Options:"
+    echo "  -p <path>              Path to check."
+    echo "  -o <filename>          Output results to filename."
+    echo "  -h                     Display this help message."
+    exit 1
+}
+
+export THEPATH=""
+export OUTPUT=""
+
+# Parse command line arguments
+while getopts ":p:s:o:t:h" opt; do
+    case $opt in
+        p) THEPATH="$OPTARG" ;;
+        o) OUTPUT="$OPTARG" ;;
+        h) usage ;;                     # Display help message
+        \?) echo "Invalid option: -$OPTARG" >&2; usage ;;
+        :) echo "Option -$OPTARG requires an argument." >&2; usage ;;
+    esac
+done
+
+# Check if mandatory arguments are provided
+if [ -z "$THEPATH" ]; then
+    echo
+    echo "Error: Argument -p is required."
+    echo
+    usage
+fi
+if [ -z "$OUTPUT" ]; then
+    echo
+    echo "Error: Argument -o is required."
+    echo
+    usage
+fi
+
+# Create temporary file
+TMPFILE=$(mktemp /tmp/rbh-du-XXXXX)
+
+# For each directory do a rbh-du
+find $THEPATH/* -type d -prune | gawk '{cmd=sprintf("sudo rbh-du \"%s\"",$0); system(cmd);}' 2> /dev/null > $TMPFILE
+
+# Reverse sort the output
+sort -nr $TMPFILE > $OUTPUT
+
+# Tidy up
+rm $TMPFILE
