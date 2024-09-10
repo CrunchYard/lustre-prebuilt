@@ -56,5 +56,5 @@ Example output:
 
 ## Can also use rbh-find directly
 ```bash
-rbh-find -size 50M -ost 1
+rbh-find -size +50M -ost 1
 ```
