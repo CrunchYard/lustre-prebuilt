@@ -45,7 +45,7 @@ fi
 TMPFILE=$(mktemp /tmp/rbh-du-XXXXX)
 
 # For each directory do a rbh-du
-find $THEPATH/* -type d -prune | gawk '{cmd=sprintf("sudo rbh-du \"%s\"",$0); system(cmd);}' 2> /dev/null > $TMPFILE
+find $THEPATH/* -type d -prune | gawk '{cmd=sprintf("rbh-du \"%s\"",$0); system(cmd);}' 2> /dev/null > $TMPFILE
 
 # Reverse sort the output
 sort -nr $TMPFILE > $OUTPUT
