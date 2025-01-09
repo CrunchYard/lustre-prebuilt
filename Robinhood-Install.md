@@ -9,7 +9,7 @@ Install administrative tool and register a changelog reader ([Enabling Lustre v2
 
 ### 1 - Get RPM
 ```bash 
-wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/robinhood-adm-3.2.0-1.x86_64.rpm
+wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/3.2.0/robinhood-adm-3.2.0-1.x86_64.rpm
 ```
 
 ### 2 - Install RPM
@@ -39,10 +39,10 @@ sudo yum install -y php php-mysqlnd php-pdo php-json mariadb mariadb-server jema
 
 ### 2 - Get the RPMs
 ```bash
-wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/robinhood-adm-3.2.0-1.x86_64.rpm
-wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/robinhood-lustre-3.2.0-1.lustre2.15.el8.x86_64.rpm
-wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/robinhood-tools-3.2.0-1.lustre2.15.el8.x86_64.rpm
-wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/robinhood-webgui-3.2.0-1.x86_64.rpm
+wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/3.2.0/robinhood-adm-3.2.0-1.x86_64.rpm
+wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/3.2.0/robinhood-lustre-3.2.0-1.lustre2.15.el8.x86_64.rpm
+wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/3.2.0/robinhood-tools-3.2.0-1.lustre2.15.el8.x86_64.rpm
+wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/3.2.0/robinhood-webgui-3.2.0-1.x86_64.rpm
 ```
 
 ### 3 - Install the RPMs
