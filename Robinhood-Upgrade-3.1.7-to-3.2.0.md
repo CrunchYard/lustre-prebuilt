@@ -1,6 +1,6 @@
 # Robinhood Upgrade from 3.1.7 to 3.2.0
 
-### 1 - Stop running robinhood
+### 1 - Stop the running robinhood
 ```bash
 systemctl stop robinhood
 ```
