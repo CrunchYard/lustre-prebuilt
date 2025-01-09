@@ -20,10 +20,14 @@ sudo rpm -i robinhood-adm-3.2.0-1.x86_64.rpm  robinhood-lustre-3.2.0-1.lustre2.1
 
 ### 4 - Recreate robinhood database
 
-**Note: Will require the root admin password for mariadb/mysql **
+** Note: Will require the root admin password for mariadb/mysql **
 
 ```bash
-sudo rbh-config empty_db
+sudo rbh-config empty_db robinhood_lustre
+````
+** NB: Will need to supply database name, access for localhost, and use the existing robinhood database password. **
+
+```bash
 sudo rbh-config create_db
 ```
 
