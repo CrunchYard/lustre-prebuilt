@@ -116,6 +116,24 @@ sudo cp /etc/robinhood.d/templates/basic.conf /etc/robinhood.d/LustreFS.conf
 sudo vi /etc/robinhood.d/LustreFS.conf
 ```
 
+### 11b - Update modification
+```bash
+update_rules {
+    ignore { last_mod < 10m }
+    ignore { last_mod > 1d }
+
+    rule default {
+        condition = true; # apply to all entries (except above exclusions)
+    }
+}
+
+# run every 12h
+update_trigger {
+    trigger_on = scheduled;
+    check_interval = 12h;
+}
+```
+
 ### 12 - Initial scan
 **Useful notes in the admin documentation** [Initial scan](https://github.com/cea-hpc/robinhood/wiki/robinhood_v3_admin_doc#initial-scan)
 ```bash
