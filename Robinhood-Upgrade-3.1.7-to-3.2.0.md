@@ -20,6 +20,12 @@ sudo rpm -Uvh robinhood-adm-3.2.0-1.x86_64.rpm  robinhood-lustre-3.2.0-1.lustre2
 
 ### 4 - Recreate robinhood database
 
+#### 4.1 Option One
+
+Purge the database package and re-install it.  Do not forget to do the "secure" installation step as well.
+
+#### 4.2 Option Two
+
 ** Note: Will require the root admin password for mariadb/mysql **
 
 ```bash
