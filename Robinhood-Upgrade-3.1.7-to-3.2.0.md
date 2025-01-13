@@ -15,7 +15,7 @@ wget https://github.com/CrunchYard/lustre-prebuilt/raw/master/3.2.0/robinhood-we
 
 ### 3 - Install the RPMs
 ```bash
-sudo rpm -i robinhood-adm-3.2.0-1.x86_64.rpm  robinhood-lustre-3.2.0-1.lustre2.15.el8.x86_64.rpm  robinhood-tools-3.2.0-1.lustre2.15.el8.x86_64.rpm  robinhood-webgui-3.2.0-1.x86_64.rpm
+sudo rpm -Uvh robinhood-adm-3.2.0-1.x86_64.rpm  robinhood-lustre-3.2.0-1.lustre2.15.el8.x86_64.rpm  robinhood-tools-3.2.0-1.lustre2.15.el8.x86_64.rpm  robinhood-webgui-3.2.0-1.x86_64.rpm
 ```
 
 ### 4 - Recreate robinhood database
