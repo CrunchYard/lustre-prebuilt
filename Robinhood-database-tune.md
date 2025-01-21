@@ -52,6 +52,3 @@
  - `mysql_secure_installation`
 - Reinstall the robinhood database
  - `rbh-config create_db`
-
-## Database configuration
-
