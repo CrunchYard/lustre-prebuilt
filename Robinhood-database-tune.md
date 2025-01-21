@@ -1,5 +1,7 @@
 # Database tuning for robinhood
 
+Must check memory and resource utilisation on the client machinen that is running the database.
+
 ## Database preparation
 - Completely remove mariadb-server.
  - `yum remove mariadb-server`
