@@ -1,6 +1,15 @@
 # Database tuning for robinhood
 
-** Note - must check installed memory size on system **
+## Database preparation
+- Completely remove mariadb-server.
+ - `yum remove mariadb-server`
+- Remove contents of `/var/lib/mariadb`.
+ - `rm -rf /var/lib/mariadb`
+- Reinstall mariadb-server.
+ - `yum install mariadb-server`
+- Change database data path in `/etc/my.cnf.d/mariadb-server.cnf`
+ - Ensure `datadir=/opt/mysql`.
+- **Note - must check installed memory size on system.**  Add to `/etc/my.cnf.d/mariadb-server.cnf`
 ```
 [mysqld]
  performance_schema
@@ -33,4 +42,16 @@
  innodb_log_file_size = 900M
  innodb_log_files_in_group = 4
  innodb_lock_wait_timeout = 120
+
+[mysqld_safe]
+  open-files-limit=2048
 ```
+- Start the database
+ - `systemctl enable mariadb --now` 
+- Secure the database installation (note down root password).
+ - `mysql_secure_installation`
+- Reinstall the robinhood database
+ - `rbh-config create_db`
+
+## Database configuration
+
