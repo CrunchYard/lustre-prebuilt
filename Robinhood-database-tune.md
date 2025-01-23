@@ -6,7 +6,7 @@ Must check memory and resource utilisation on the client machinen that is runnin
 - Completely remove mariadb-server.
  - `yum remove mariadb-server`
 - Remove contents of `/var/lib/mariadb`.
- - `rm -rf /var/lib/mariadb`
+ - `rm -rf /opt/mysql/*`
 - Reinstall mariadb-server.
  - `yum install mariadb-server`
 - Change database data path in `/etc/my.cnf.d/mariadb-server.cnf`
