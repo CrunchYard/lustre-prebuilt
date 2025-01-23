@@ -53,7 +53,7 @@ Must check memory and resource utilisation on the client machinen that is runnin
 ```
 - Start the database
   - `systemctl enable mariadb --now` 
-- Secure the database installation (note down root password).
+- Secure the database installation (keep a record of the root password).
   - `mysql_secure_installation`
 - Reinstall the robinhood database
   - `rbh-config create_db`
