@@ -3,6 +3,9 @@
 Must check memory and resource utilisation on the client machinen that is running the database.
 
 ## Database preparation
+- Stop running services
+ - `systemctl stop robinhood`
+ - `systemctl stop mariadb`
 - Completely remove mariadb-server.
  - `yum remove mariadb-server`
 - Remove contents of `/var/lib/mariadb`.
