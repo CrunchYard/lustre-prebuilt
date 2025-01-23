@@ -29,7 +29,7 @@ Must check memory and resource utilisation on the client machinen that is runnin
  max_heap_table_size=1G
 
  # innodb_buffer_pool_size: recommended value is 80% of physical memory
- innodb_buffer_pool_size = 6G
+ innodb_buffer_pool_size = 50G
  #innodb_additional_mem_pool_size = 16M
  innodb_max_dirty_pages_pct = 20
  innodb_file_per_table = 1
