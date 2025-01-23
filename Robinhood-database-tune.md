@@ -4,16 +4,16 @@ Must check memory and resource utilisation on the client machinen that is runnin
 
 ## Database preparation
 - Stop running services
- - `systemctl stop robinhood`
- - `systemctl stop mariadb`
+  - `systemctl stop robinhood`
+  - `systemctl stop mariadb`
 - Completely remove mariadb-server.
- - `yum remove mariadb-server`
+  - `yum remove mariadb-server`
 - Remove contents of `/var/lib/mariadb`.
- - `rm -rf /opt/mysql/*`
+  - `rm -rf /opt/mysql/*`
 - Reinstall mariadb-server.
- - `yum install mariadb-server`
+  - `yum install mariadb-server`
 - Change database data path in `/etc/my.cnf.d/mariadb-server.cnf`
- - Ensure `datadir=/opt/mysql`.
+  - Ensure `datadir=/opt/mysql`.
 - **Note - must check installed memory size on system.**  Add to `/etc/my.cnf.d/mariadb-server.cnf`
 ```
 [mysqld]
@@ -52,11 +52,11 @@ Must check memory and resource utilisation on the client machinen that is runnin
   open-files-limit=2048
 ```
 - Start the database
- - `systemctl enable mariadb --now` 
+  - `systemctl enable mariadb --now` 
 - Secure the database installation (note down root password).
- - `mysql_secure_installation`
+  - `mysql_secure_installation`
 - Reinstall the robinhood database
- - `rbh-config create_db`
+  - `rbh-config create_db`
 - Run robinhood scan
    
 ## Additional   
