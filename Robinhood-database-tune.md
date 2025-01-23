@@ -60,7 +60,7 @@ Must check memory and resource utilisation on the client machinen that is runnin
 - Start robinhood
   - `systemctl enable robinhood --now` 
 - Run robinhood scan
-  - 
+  - `sudo robinhood --scan --once`
    
 ## Additional   
 - Modify the update frequency to 6 hours in `/etc/robinhood.d/LustreFS.conf`
