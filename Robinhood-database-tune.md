@@ -57,7 +57,10 @@ Must check memory and resource utilisation on the client machinen that is runnin
   - `mysql_secure_installation`
 - Reinstall the robinhood database
   - `rbh-config create_db`
+- Start robinhood
+  - `systemctl enable robinhood --now` 
 - Run robinhood scan
+  - 
    
 ## Additional   
 - Modify the update frequency to 6 hours in `/etc/robinhood.d/LustreFS.conf`
