@@ -2,7 +2,7 @@
 
 https://doc.lustre.org/lustre_manual.xhtml#lustremaint.remove_ost
 
-# Stop the OST and migrate files off
+## Stop the OST and migrate files off
 - check status:
   - ``sudo lctl dl``
 - On each MDS, to remove "OST0003":  (change LustreFS as appropriate)
@@ -16,7 +16,7 @@ https://doc.lustre.org/lustre_manual.xhtml#lustremaint.remove_ost
 - On the MGS - "permanently" deactivate the OST
   - ``sudo lctl conf_param LustreFS-OST0003.osc.active=0``
 
-# Remove the OST from lustre
+## Remove the OST from lustre
 Must be on the OSS
 - ``umount /dev/sdd''
 - ``tunefs.lustre --erase-params --mgsnode=10.10.0.20 /dev/sdd``
@@ -25,7 +25,7 @@ On the MGS
   ``lctl conf_param LustreFS-OST0003.failover.nid=``
   ``systemctl restart lustre``
 
-# Repurpose OSS
+## Repurpose OSS
 - Need to reformat with replace
 
 # Notes
