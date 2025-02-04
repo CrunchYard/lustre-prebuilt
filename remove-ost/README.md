@@ -1,4 +1,6 @@
-# https://doc.lustre.org/lustre_manual.xhtml#lustremaint.remove_ost
+# Removing an OST
+
+https://doc.lustre.org/lustre_manual.xhtml#lustremaint.remove_ost
 
 - check status:
   - ``sudo lctl dl``
@@ -6,7 +8,6 @@
   - ``sudo lctl set_param osp.LustreFS-OST0003-osc-MDT*.max_create_count=0``
 - Discover all files that have objects residing on the deactivated OST. Depending on whether the deactivated OST is available or not, the data from that OST may be migrated to other OSTs, or may need to be restored from backup.
   - Must do this on a client, *not* MDS
-  - KJN note - **do not** break the migration!
   - Note that even with "-y" may be prompted to confirm migrations.
     -  ``sudo lfs find --ost LustreFS-OST0003 /lustre | lfs_migrate -y``   
 - To check which files are on an OST:
