@@ -23,7 +23,10 @@ On the MGS
   ``lctl conf_param LustreFS-OST0003.failover.nid=``
   ``systemctl restart lustre``
 
+# Repurpose OSS
+- Need to reformat with replace
+
 # Notes
 - Determining Which Machine is Serving an OST
   - lctl get_param osc.*-OST0003*.ost_conn_uuid
-  - 
+  
