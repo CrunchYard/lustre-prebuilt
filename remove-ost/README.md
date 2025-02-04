@@ -32,5 +32,5 @@ On the MGS
 
 # Notes
 - Determining Which Machine is Serving an OST
-  - lctl get_param osc.*-OST0003*.ost_conn_uuid
+  - `lctl get_param osc.*-OST0003*.ost_conn_uuid`
   
