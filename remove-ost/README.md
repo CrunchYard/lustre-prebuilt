@@ -14,6 +14,15 @@
 - On the MGS - "permanently" deactivate the OST
   - ``sudo lctl conf_param LustreFS-OST0003.osc.active=0``
 
+# Remove the OST from lustre
+Must be on the OSS
+- ``umount /dev/sdd''
+- ``tunefs.lustre --erase-params --mgsnode=10.10.0.20 /dev/sdd``
+On the MGS
+- ``lctl conf_param LustreFS-OST0003.failover.node=``
+  ``lctl conf_param LustreFS-OST0003.failover.nid=``
+  ``systemctl restart lustre``
+
 # Notes
 - Determining Which Machine is Serving an OST
   - lctl get_param osc.*-OST0003*.ost_conn_uuid
