@@ -2,6 +2,7 @@
 
 https://doc.lustre.org/lustre_manual.xhtml#lustremaint.remove_ost
 
+# Stop the OST and migrate files off
 - check status:
   - ``sudo lctl dl``
 - On each MDS, to remove "OST0003":  (change LustreFS as appropriate)
