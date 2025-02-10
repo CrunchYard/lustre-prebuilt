@@ -23,9 +23,9 @@ Must be on the OSS
 - Remove from OST
 - `tunefs.lustre --erase-params --mgsnode=10.10.0.20 /dev/sdd`
 On the MGS
-- `lctl conf_param LustreFS-OST0003.failover.node=`
-- `lctl conf_param LustreFS-OST0003.failover.nid=`
-- `systemctl restart lustre`
+  - `lctl conf_param LustreFS-OST0003.failover.node=`
+  - `lctl conf_param LustreFS-OST0003.failover.nid=`
+  - `systemctl restart lustre`
 
 ## Repurpose OSS
 - Need to reformat with replace
