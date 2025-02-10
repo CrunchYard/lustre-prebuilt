@@ -17,13 +17,13 @@ https://doc.lustre.org/lustre_manual.xhtml#lustremaint.remove_ost
   - `sudo lctl conf_param LustreFS-OST0003.osc.active=0`
 
 ## Remove the OST from lustre
-Must be on the OSS
+Must be on the OSS.
 - Unmount the target disk
   - `umount /dev/sdd`
 - Remove from OST
 - `tunefs.lustre --erase-params --mgsnode=10.10.0.20 /dev/sdd`
 
-On the MGS
+On the MGS - not sure this is absolutely necessary, but have found some folk recommending this.
   - `lctl conf_param LustreFS-OST0003.failover.node=`
   - `lctl conf_param LustreFS-OST0003.failover.nid=`
   - `systemctl restart lustre`
