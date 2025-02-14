@@ -4,7 +4,13 @@
 lctl get_param ldlm.namespaces.*osc*.lru_size
 ```
 
-# Set LRU
+# Set current LRU
+
+```
+lctl set_param ldlm.namespaces.*osc*.lru_size=4096
+```
+
+# Automatically set LRU on boot (required)
 
 Need to create script to run on boot via crontab (as root).
 
