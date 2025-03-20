@@ -11,3 +11,10 @@ lslocks
 ```
 ps -o lstart= -o user= -o uid= -p <PID>
 ```
+
+## NOT working - Get list of the file paths (lslocks unfortunately truncates the path)
+
+Prints out the (truncated) path, username, userid, process id and process start time for all locked files.
+```
+lslocks -r -u | awk '{cmd=sprintf("echo -n \"%s \"\nps -o user= -o uid= -o pid= -o lstart= -p %s", $8, $2); system(cmd);}'
+```
