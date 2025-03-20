@@ -1,6 +1,6 @@
 # Checking for lock information
 
-## Get list of files that are locked (includes PID)
+## Get list of files that are locked (including the PID)
 
 ```
 lslocks
