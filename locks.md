@@ -18,3 +18,9 @@ Prints out the (truncated) path, username, userid, process id and process start 
 ```
 lslocks -r -u | awk '{cmd=sprintf("echo -n \"%s \"\nps -o user= -o uid= -o pid= -o lstart= -p %s", $8, $2); system(cmd);}'
 ```
+
+## The lsof command can also list deleted/locked files with their full paths:
+
+```
+sudo lsof | grep '(deleted\|LOCKED)'
+```
