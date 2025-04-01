@@ -30,6 +30,7 @@ lfs quota -h -v -u root /lustre
 ```
 
 Example output:
+
 _Note that the ``quotactl ost0 failed.`` message is caused by quota not being enabled on the target system._
 ```
 Disk quotas for usr root (uid 0):
